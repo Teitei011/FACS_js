@@ -15,7 +15,7 @@ function Emotion(){
 
 
   this.Anger = function(){
-
+    print("Hulk Smash")
   }
 
   this.Sadness = function(){

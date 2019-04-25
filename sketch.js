@@ -12,8 +12,6 @@ function setup(){
   createArrayOfEmotions();
 
   Anger = createButton("Anger");
-  Anger.mousePressed(emotion.Anger());
-
   Sadness = createButton("Sadness");
   Fear = createButton("Fear");
   Surprise = createButton("Surprise");
@@ -32,11 +30,6 @@ function createArrayOfEmotions(){
 function draw() {
   background(black);
   // put drawing code here
-}
-
-function emotionClickResult(emotion){
-  if (emotion == "Anger")
-    console.log(emotion)
 }
 
 function image_update(){
