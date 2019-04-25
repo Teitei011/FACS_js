@@ -7,13 +7,13 @@ function Emotion(){
 
 // Number of images that I have for each emotions
   this.Database = {
-    "Anger" : 10,
-    "Sadness" : 10,
-    "Fear" : 10,
-    "Surprise" : 10,
-    "Contempt" : 10,
-    "Disgust" : 10,
-    "Happyness" : 10
+    "Anger" : 5,
+    "Sadness" : 4,
+    "Fear" : 7,
+    "Surprise" : 6,
+    "Contempt" : 7,
+    "Disgust" : 12,
+    "Happyness" : 15
   }
 
 
