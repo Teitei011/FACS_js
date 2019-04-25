@@ -13,34 +13,4 @@ function Emotion(){
     return (this._emotion == this._guess)
   }
 
-
-  this.Anger = function(){
-    print("Hulk Smash")
-  }
-
-  this.Sadness = function(){
-
-  }
-
-  this.Fear = function(){
-
-  }
-
-  this.Surprise = function(){
-
-  }
-  this.Contempt = function(){
-
-  }
-
-  this.Disgust = function(){
-
-  }
-
-  this.Happyness = function(){
-
-  }
-
-
-
 }
