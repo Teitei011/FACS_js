@@ -47,8 +47,9 @@ function createArrayOfEmotions(){
 }
 
 function checkResult(){
-  return array_of_emotions[i].compareAnswer();
+   return array_of_emotions[i].compareAnswer();
 }
+
 
 function score_update(){
   if (checkResult) ++score_value;
@@ -56,5 +57,5 @@ function score_update(){
 }
 
 function draw() {
-  background(255);
+  background(black);
 }
