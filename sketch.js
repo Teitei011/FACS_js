@@ -23,13 +23,19 @@ function setup(){
   Disgust = createButton("Disgust");
   Happyness = createButton("Happyness");
 
+
 }
 
 function createArrayOfEmotions(){
   for (var i = 0;i < repetitions; ++i){
     array_of_emotions[i] = new Emotion();
   }
+
+  for (var i = 0;i < repetitions; ++i){
+    array_of_emotions[i].loadEmotionImage();
+  }
 }
+
 
 function draw() {
   background(black);
