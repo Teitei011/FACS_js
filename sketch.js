@@ -2,8 +2,7 @@ var black = (0,0,0);
 
 var i;
 var repetitions = 10;
-var score;
-
+var score, score_value;
 
 var Anger, Sadness, Fear, Surprise, Contempt, Disgust, Happyness;
 var emotion;
@@ -13,8 +12,10 @@ var array_of_emotions = [];
 function setup(){
   createCanvas(800,650);
 
-  score = 0;
+  score_value = 0;
+  score = text(score_value,x,y,x2,y2)
   createArrayOfEmotions();
+
 
   Anger = createButton("Anger");
   // Anger.mouseReleased();
@@ -40,9 +41,8 @@ function setup(){
 }
 
 function createArrayOfEmotions(){
-  for (i = 0;i < repetitions; ++i){
+  for (i = 0; i < repetitions; ++i)
     array_of_emotions[i] = new Emotion();
-  }
   i = 0;
 }
 
@@ -51,10 +51,10 @@ function checkResult(){
 }
 
 function score_update(){
-  if (checkResult) ++score;
-  else --score;
+  if (checkResult) ++score_value;
+  else --score_value;
 }
 
 function draw() {
-  background(black);
+  background(255);
 }

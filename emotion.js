@@ -8,6 +8,7 @@ class Emotion{
     this._guess = "None";
 
   // Number of images that I have for each emotions
+  // TODO: Update database
     this.Database = {
       "Anger" : 10,
       "Sadness" : 10,
@@ -21,10 +22,10 @@ class Emotion{
 
   loadEmotionImage(){
     // Tenho que descobrir uma forma de passar o this.emotion
-    this._emotionImageFile = "../asserts/" + this._emotion + str(random(this.Database[this._emotion])) + ".png";
+    this._emotionImageFile = "../asserts/" + this._emotion + "/" str(int(random(this.Database[this._emotion]))) + ".png";
     // print("../asserts/" + this._emotion + str(random(this.Database[this._emotion])) + ".png")
   }
-  
+
   show() {
     return this._emotion;
   }
