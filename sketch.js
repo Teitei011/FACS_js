@@ -1,13 +1,14 @@
 var black = (0,0,0);
 
+var i;
 var repetitions = 10;
 var score;
 
-var answer;
 
 var Anger, Sadness, Fear, Surprise, Contempt, Disgust, Happyness;
 var emotion;
 var array_of_emotions = [];
+
 
 function setup(){
   createCanvas(800,650);
@@ -16,34 +17,44 @@ function setup(){
   createArrayOfEmotions();
 
   Anger = createButton("Anger");
-  Sadness = createButton("Sadness");
-  Fear = createButton("Fear");
-  Surprise = createButton("Surprise");
-  Contempt = createButton("Contempt");
-  Disgust = createButton("Disgust");
-  Happyness = createButton("Happyness");
+  // Anger.mouseReleased();
 
+  Sadness = createButton("Sadness");
+  // Sadness.mouseReleased();
+
+  Fear = createButton("Fear");
+  // Fear.mouseReleased();
+
+  Surprise = createButton("Surprise");
+  // Surprise.mouseReleased();
+
+  Contempt = createButton("Contempt");
+  // Contempt.mouseReleased();
+
+  Disgust = createButton("Disgust");
+  // Disgust.mouseReleased();
+
+  Happyness = createButton("Happyness");
+  // Happyness.mouseReleased();
 
 }
 
 function createArrayOfEmotions(){
-  for (var i = 0;i < repetitions; ++i){
+  for (i = 0;i < repetitions; ++i){
     array_of_emotions[i] = new Emotion();
   }
-
-  for (var i = 0;i < repetitions; ++i){
-    array_of_emotions[i].loadEmotionImage();
-  }
+  i = 0;
 }
 
+function checkResult(){
+  return array_of_emotions[i].compareAnswer();
+}
+
+function score_update(){
+  if (checkResult) ++score;
+  else --score;
+}
 
 function draw() {
   background(black);
-  // put drawing code here
-}
-
-
-
-function image_update(){
-
 }

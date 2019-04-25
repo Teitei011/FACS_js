@@ -1,33 +1,36 @@
-function Emotion(){
-  this._vector = ["Anger", "Sadness", "Fear", "Surprise", "Contempt", "Disgust", "Happyness"]
+class Emotion{
 
-  this._emotion = random(this._vector)
-  this._emotionImageFile = this.loadEmotionImage;
-  this._guess = "None";
+  constructor(){
+    this._vector = ["Anger", "Sadness", "Fear", "Surprise", "Contempt", "Disgust", "Happyness"]
 
-// Number of images that I have for each emotions
-  this.Database = {
-    "Anger" : 5,
-    "Sadness" : 4,
-    "Fear" : 7,
-    "Surprise" : 6,
-    "Contempt" : 7,
-    "Disgust" : 12,
-    "Happyness" : 15
+    this._emotion = random(this._vector)
+    this._emotionImageFile ="None";
+    this._guess = "None";
+
+  // Number of images that I have for each emotions
+    this.Database = {
+      "Anger" : 10,
+      "Sadness" : 10,
+      "Fear" : 10,
+      "Surprise" : 10,
+      "Contempt" : 10,
+      "Disgust" : 10,
+      "Happyness" : 10
+      }
+    }
+
+  loadEmotionImage(){
+    // Tenho que descobrir uma forma de passar o this.emotion
+    this._emotionImageFile = "../asserts/" + this._emotion + str(random(this.Database[this._emotion])) + ".png";
+    // print("../asserts/" + this._emotion + str(random(this.Database[this._emotion])) + ".png")
   }
-
-
-  this.show = function(){
+  
+  show() {
     return this._emotion;
   }
 
-  this.compareAnswer = function(){
+  compareAnswer(){
     return (this._emotion == this._guess);
-  }
-
-  this.loadEmotionImage = function(){
-    this._emotionImageFile = "../asserts/" + this.emotion + "/" str(random(this.Database[this.emotion])) + ".png";
-     print("../asserts/" + this.emotion + str(random(this.Database[this.emotion])) + ".png")
   }
 
 }
