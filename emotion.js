@@ -2,7 +2,6 @@ function Emotion(){
   this._vector = ["Anger", "Sadness", "Fear", "Surprise", "Contempt", "Disgust", "Happyness"]
 
   this._emotion = random(this._vector)
-  this._emotionImageFile = this.loadEmotionImage;
 
 // Number of images that I have for each emotions
   this.Database = {
@@ -19,8 +18,12 @@ function Emotion(){
     return this._emotion;
   }
 
+  this.ImageFile = function(){
+    return this.loadEmotionImage;
+  }
+
   this.loadEmotionImage = function(){
-    this._emotionImageFile = "../asserts/" + this.emotion + "/" str(random(this.Database[this.emotion])) + ".png";
+    return "/asserts/" + this.emotion + "/" + str(int(random(this.Database[this.emotion]))) + ".png";
   }
 
 }

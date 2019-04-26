@@ -6,17 +6,21 @@ let score;
 let score_value;
 
 let temp;
+let img_file;
+let img;
+
+let timer;
 
 let guess;
 
 let Anger, Sadness, Fear, Surprise, Contempt, Disgust, Happyness;
-let array_of_emotions = [];
+let array_of_emotions;
 
 
 function setup(){
   createCanvas(800,650);
 
-  reset();
+  // reset();
 
   Anger = createButton("Anger");
   Sadness = createButton("Sadness");
@@ -31,6 +35,7 @@ function reset(){
     array_of_emotions = [];
     createArrayOfEmotions();
     score_value = 0;
+    nextQuestion();
 }
 
 function createArrayOfEmotions(){
@@ -45,16 +50,33 @@ function draw() {
   // put drawing code here
 }
 
-function checkResult(guess){
-  if (array_of_emotions.pop() == guess) return true;
-  else return false;
+function afterButtomPressed(guess){
+  score_update(checkResult(guess))
+  nextQuestion();
 }
 
-function score_update(){
-  if (checkResult) ++score_value;
+function nextQuestion(){
+  img_file = array_of_emotions.top().imageFile();
+}
+
+
+function checkResult(guess){
+  return (array_of_emotions.pop().show() == guess);
+}
+
+// TODO: Preciso declarar verify ?
+function score_update(verify){
+  if (verify) ++score_value;
   else --score_value;
 }
 
-function image_update(){
+
+function update(){
+  img = loadImage(img_file);
+  image(img, 0, 0);
+
+  timeDelay(5)  // Seconds
+
+  img.remove(); // Remove the image
 
 }
