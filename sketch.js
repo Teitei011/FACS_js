@@ -3,22 +3,21 @@ var black = (0,0,0);
 var i;
 var repetitions = 10;
 var score, score_value;
+var guess;
 
 var Anger, Sadness, Fear, Surprise, Contempt, Disgust, Happyness;
 var emotion;
 var array_of_emotions = [];
 
+function preload(){
+  score_value = 0;
+  createArrayOfEmotions();
+}
 
 function setup(){
   createCanvas(800,650);
-
-  score_value = 0;
-  score = text(score_value,x,y,x2,y2)
-  createArrayOfEmotions();
-
-
   Anger = createButton("Anger");
-  // Anger.mouseReleased();
+  // Anger.mouseReleased("Anger");
 
   Sadness = createButton("Sadness");
   // Sadness.mouseReleased();
@@ -46,10 +45,9 @@ function createArrayOfEmotions(){
   i = 0;
 }
 
-function checkResult(){
-   return array_of_emotions[i].compareAnswer();
+function checkResult(guess){
+   return array_of_emotions[i].compareAnswer(guess);
 }
-
 
 function score_update(){
   if (checkResult) ++score_value;

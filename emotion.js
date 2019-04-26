@@ -1,11 +1,9 @@
-class Emotion{
-
+function  Emotion{
   constructor(){
-    this._vector = ["Anger", "Sadness", "Fear", "Surprise", "Contempt", "Disgust", "Happyness"]
-
+    this._vector = ["Anger", "Sadness", "Fear", "Surprise", "Contempt", "Disgust", "Happyness"];
     this._emotion = random(this._vector)
     this._emotionImageFile ="None";
-    this._guess = "None";
+    // this._guess = "None";
 
   // Number of images that I have for each emotions
   // TODO: Update database
@@ -30,8 +28,8 @@ class Emotion{
     return this._emotion;
   }
 
-  compareAnswer(){
-    return (this._emotion == this._guess);
+  compareAnswer(guess){
+    return (this._emotion == guess);
   }
 
 }
