@@ -1,16 +1,16 @@
-var black = (0,0,0);
+let black = (0,0,0);
 
-var repetitions = 10;
+let repetitions = 10;
 
-var score;
-var score_value;
+let score;
+let score_value;
 
-var temp;
+let temp;
 
-var guess;
+let guess;
 
-var Anger, Sadness, Fear, Surprise, Contempt, Disgust, Happyness;
-var array_of_emotions = [];
+let Anger, Sadness, Fear, Surprise, Contempt, Disgust, Happyness;
+let array_of_emotions = [];
 
 
 function setup(){
@@ -34,7 +34,7 @@ function reset(){
 }
 
 function createArrayOfEmotions(){
-  for (var i = 0; i < repetitions; ++i){
+  for (let i = 0; i < repetitions; ++i){
     temp = new Emotion();
     array_of_emotions.push(temp);
   }
