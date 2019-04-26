@@ -47,7 +47,7 @@ function createArrayOfEmotions(){
 
 function draw() {
   background(black);
-  // put drawing code here
+  update();
 }
 
 function afterButtomPressed(guess){
