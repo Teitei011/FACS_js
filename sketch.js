@@ -1,5 +1,3 @@
-let black = (0,0,0);
-
 let repetitions = 10;
 
 let score;
@@ -21,6 +19,10 @@ function setup(){
   createCanvas(800,650);
 
   // reset();
+  fill(255,255,255);
+  textAlign(CENTER);
+  textSize(40);
+  text(score_value, 200, 100)
 
   Anger = createButton("Anger");
   Sadness = createButton("Sadness");
@@ -46,7 +48,7 @@ function createArrayOfEmotions(){
 }
 
 function draw() {
-  background(black);
+  background(255,255,255);
   update();
 }
 
@@ -56,7 +58,7 @@ function afterButtomPressed(guess){
 }
 
 function nextQuestion(){
-  img_file = array_of_emotions.top().imageFile();
+  img_file = array_of_emotions[array_of_emotions.length].imageFile();
 }
 
 
