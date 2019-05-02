@@ -1,21 +1,20 @@
 let altura, largura;
 
-let repetitions = 10;
 let i;
+let repetitions = 10;
 
 let score, scoreValue;
 let slider, sliderValue;
+let resetButtom;
 
 
-let img_file;
+let imgFile;
 let img;
 
 
-
-let guess;
-
 let Anger, Sadness, Fear, Surprise, Contempt, Disgust, Happyness;
-let array_of_emotions;
+let arrayOfEmotions = [];
+let guess;
 
 
 function setup(){
@@ -35,59 +34,77 @@ function setup(){
 
   Anger = createButton("Anger").size(larguraBotao, alturaBotao);
   Anger.position(largura * 0.02, altura * .90);
+  Anger.mousePressed(anger)
 
   Sadness = createButton("Sadness").size(larguraBotao, alturaBotao);
   Sadness.position(largura * 0.10, altura * .90);
+  Sadness.mousePressed(sadness)
 
   Fear = createButton("Fear").size(larguraBotao, alturaBotao);
   Fear.position(largura * 0.18, altura * .90);
+  Fear.mousePressed(fear)
 
   Surprise = createButton("Surprise").size(larguraBotao, alturaBotao);
   Surprise.position(largura * 0.26, altura * .90);
+  Surprise.mousePressed(surprise)
 
   Contempt = createButton("Contempt").size(larguraBotao, alturaBotao);
   Contempt.position(largura * 0.34, altura * .90);
+  Contempt.mousePressed(contempt)
 
   Disgust = createButton("Disgust").size(larguraBotao, alturaBotao);
   Disgust.position(largura * 0.42, altura * .90);
+  Disgust.mousePressed(disgust)
 
   Happyness = createButton("Happyness").size(larguraBotao, alturaBotao);
   Happyness.position(largura * 0.50, altura * .90);
+  Happyness.mousePressed(happyness)
+
+  // Reset Buttom
+  resetButtom = createButton("Reset").size(larguraBotao, alturaBotao*1.2);
+  resetButtom.position(largura * .9, altura * .40);
+  resetButtom.mousePressed(reset);
+
+
 }
 
 function draw() {
+  background(0);
   writeText();
   update();
 }
 
 function reset(){
-    array_of_emotions = [];
-    array_of_emotions = createArrayOfEmotions();
+    console.log("Reseting the game...")
+    arrayOfEmotions = [];  // Cleaning the array
+    createArrayOfEmotions();
     scoreValue = 0;
-    // nextQuestion();
+    nextQuestion();
 }
 
 function createArrayOfEmotions(){
-  let bufferArray = [];
+  let temp;
   for ( i = 0; i < repetitions; ++i){
-    bufferArray[i] = new Emotion;
+    temp = new Emotion;
+    arrayOfEmotions[i] =  temp;
   }
-  return bufferArray;
 }
 
-
 function afterButtomPressed(guess){
+  console.log("Guess emotion: " + str(guess))
   scoreUpdate(checkResult(guess))
   nextQuestion();
 }
 
 function nextQuestion(){
-  img_file = array_of_emotions[i].imageFile();
+  let temp = arrayOfEmotions[i];
+  imgFile = temp.imageFile();
+  console.log("ImageFile: " + imgFile);
 }
 
 
 function checkResult(guess){
-  let temp = array_of_emotions[i].show()
+  let temp = arrayOfEmotions[i].show()
   --i;
   return (temp == guess);
 
@@ -113,7 +130,7 @@ function writeText(){
 }
 
 function update(){
-  img = loadImage(img_file);
+  img = loadImage(imgFile);
   image(img, 0, 0);
 
   timeDelay(5)  // Seconds
@@ -121,3 +138,12 @@ function update(){
   img.remove(); // Remove the image
 
 }
+
+// Function to each emotion buttom
+function anger(){ afterButtomPressed("Anger");}
+function sadness() {afterButtomPressed("Sadness");}
+function fear() {afterButtomPressed("Fear");}
+function surprise() {afterButtomPressed("Surprise");}
+function contempt() {afterButtomPressed("Contempt");}
+function disgust() {afterButtomPressed("Disgust");}
+function happyness() {afterButtomPressed("Happyness");}
