@@ -6,8 +6,9 @@ recognizing emotions.
 I have made this program in python3 (kivy), but i dunno how to deleted dynamic the images, so I´m learning JavaScript(p5) to make this another way.
 
 *Disclaimer*
-I DON´T OWN ANY OF THE IMAGES IN THE DATASET, SO IF IT´S YOUR IMAGE THERE AND YOU WANT TO
-DELETE, FELL FREE TO CONTACT ME (I´LL DELETE RIGTH AWAY).  
+
+  I DON´T OWN ANY OF THE IMAGES IN THE DATASET, SO IF IT´S YOUR IMAGE THERE AND YOU WANT TO
+  DELETE, FELL FREE TO CONTACT ME (I´LL DELETE RIGTH AWAY).  
 
 ***TODO LIST***
 
