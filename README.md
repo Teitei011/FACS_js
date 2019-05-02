@@ -8,7 +8,7 @@ I have made this program in python3 (kivy), but i dunno how to deleted dynamic t
 **Disclaimer**
 
   I DON´T OWN ANY OF THE IMAGES IN THE DATASET, SO IF IT´S YOUR IMAGE THERE AND YOU WANT TO
-  DELETE, FELL FREE TO CONTACT ME (I´LL DELETE RIGTH AWAY).  
+  DELETE, FELL FREE TO CONTACT ME (I´LL DELETE RIGHT AWAY).  
 
 ***TODO LIST***
 
