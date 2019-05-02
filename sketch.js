@@ -1,15 +1,18 @@
+// Screen dimensions
 let altura, largura;
 
 let i;
 let repetitions = 21;
 
 let score;
-let slider, sliderValue;
-let resetButtom;
+let slider;
+
+let playButtom, stopButtom, resetButtom;
 
 let imgFile;
 let img;
 
+let timer;
 
 let Anger, Sadness, Fear, Surprise, Contempt, Disgust, Happyness;
 let arrayOfEmotions = [];
@@ -25,8 +28,7 @@ function setup(){
 
   createCanvas(windowWidth, windowHeight);
 
-  reset();
-
+  score = 0;
   slider = createSlider(200, 1000, 500, 100);
   slider.position(largura * 0.85, altura * 0.3)
 
@@ -59,15 +61,38 @@ function setup(){
   Happyness.position(largura * 0.50, altura * .90);
   Happyness.mousePressed(happyness)
 
+
+  // Play
+  playButtom = createButton("Play").size(larguraBotao, alturaBotao*1.2);
+  playButtom.position(largura * .9, altura * .40);
+  playButtom.mousePressed(play);
+
+ // Stop
+  stopButtom = createButton("Stop").size(larguraBotao, alturaBotao * 1.2);
+  stopButtom.position(largura * .9, altura * .50);
+  stopButtom.mousePressed(stop);
+
   // Reset Buttom
-  resetButtom = createButton("Reset").size(larguraBotao, alturaBotao*1.2);
-  resetButtom.position(largura * .9, altura * .40);
+  resetButtom = createButton("Reset").size(larguraBotao, alturaBotao * 1.2);
+  resetButtom.position(largura * .9, altura * .60);
   resetButtom.mousePressed(reset);
+
 
 }
 
+function play(){
+  reset();
+
+}
+
+function stop(){
+
+}
+
+
 function draw() {
   background(0);
+
   writeText();
 }
 
@@ -129,16 +154,17 @@ function writeText(){
   fill(255, 255, 255);
 
 // Score text
-  text("Score: " + score, largura * 0.80, altura * 0.10, largura * 0.25, altura * 0.1)
+  text("Score: " + score, largura * 0.80, altura * 0.10, largura * 0.25, altura * 0.1);
 
   // Slider text
-  text("Time: " + str(slider.value()) + " ms", largura * 0.925, altura * 0.25)
+  text("Time: " + str(slider.value()) + " ms", largura * 0.925, altura * 0.25);
 }
 
 
-function update(){
+function imgUpdate(){
   img = loadImage(imgFile);
   image(img, 0, 0);
+  setInterval();
   img.remove(); // Remove the image
 }
 
