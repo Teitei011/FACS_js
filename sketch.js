@@ -1,12 +1,11 @@
 let altura, largura;
 
 let i;
-let repetitions = 10;
+let repetitions = 21;
 
-let score, scoreValue;
+let score;
 let slider, sliderValue;
 let resetButtom;
-
 
 let imgFile;
 let img;
@@ -28,7 +27,7 @@ function setup(){
 
   reset();
 
-  slider = createSlider(200, 1000, 500);
+  slider = createSlider(200, 1000, 500, 100);
   slider.position(largura * 0.85, altura * 0.3)
 
 
@@ -65,20 +64,19 @@ function setup(){
   resetButtom.position(largura * .9, altura * .40);
   resetButtom.mousePressed(reset);
 
-
 }
 
 function draw() {
   background(0);
   writeText();
-  update();
 }
 
 function reset(){
-    console.log("Reseting the game...")
+    console.log("Restarting the game...")
     arrayOfEmotions = [];  // Cleaning the array
+    console.log(arrayOfEmotions)
     createArrayOfEmotions();
-    scoreValue = 0;
+    score = 0;
     nextQuestion();
 }
 
@@ -88,6 +86,7 @@ function createArrayOfEmotions(){
     temp = new Emotion;
     arrayOfEmotions[i] =  temp;
   }
+  --i;
 }
 
 function afterButtomPressed(guess){
@@ -97,23 +96,30 @@ function afterButtomPressed(guess){
 }
 
 function nextQuestion(){
-  let temp = arrayOfEmotions[i];
-  imgFile = temp.imageFile();
-  console.log("ImageFile: " + imgFile);
+  // Caso ainda há informacao no array
+  if(i != -1){
+    imgFile  = arrayOfEmotions[i].imageFile();
+    // console.log("ImageFile: " + imgFile);
+  }else{
+    console.log("End of the game")
+    reset();
+  }
 }
-
 
 function checkResult(guess){
   let temp = arrayOfEmotions[i].show()
-  --i;
+  i--;
+  // console.log("Valor de i: " + str(i))
   return (temp == guess);
 
 }
 
-// TODO: Preciso declarar verify ?
 function scoreUpdate(verify){
-  if (verify) ++scoreValue;
-  else --scoreValue;
+  if (verify) score++;
+  else score--;
+
+
+  console.log("Score Value: " + str(score))
 }
 
 function writeText(){
@@ -122,21 +128,18 @@ function writeText(){
   textSize(20);
   fill(255, 255, 255);
 
+// Score text
+  text("Score: " + score, largura * 0.80, altura * 0.10, largura * 0.25, altura * 0.1)
 
-   //  Image speed
-   sliderValue = text("Time: " + slider.value() + " ms", largura * 0.80, altura * 0.2, largura * 0.25, altura * 0.1);
-    // Score
-    score = text("Score: " + str(scoreValue*100), largura * 0.8, altura * 0.1, largura * 0.25, altura * 0.1);
+  // Slider text
+  text("Time: " + str(slider.value()) + " ms", largura * 0.925, altura * 0.25)
 }
+
 
 function update(){
   img = loadImage(imgFile);
   image(img, 0, 0);
-
-  timeDelay(5)  // Seconds
-
   img.remove(); // Remove the image
-
 }
 
 // Function to each emotion buttom
