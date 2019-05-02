@@ -1,7 +1,7 @@
 # FACS_js
 
-I´m making this program to get better on identifying emotions. I never know what the others are feeling, so with this program that I pretend to make a website I can train
-recognizing faces.
+I´m making this program to get better on identifying emotions. I never know what the others are feeling, so with this program (that I pretend to make a website) I can train to
+recognizing emotions.
 
 I have made this program in python3 (kivy), but i dunno how to deleted dynamic the images, so I´m learning JavaScript(p5) to make this another way.
 
