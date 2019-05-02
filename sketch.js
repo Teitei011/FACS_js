@@ -1,12 +1,16 @@
-let repetitions = 10;
-let score;
-let score_value = "Score: Testando";
+let altura, largura;
 
-let temp;
+let repetitions = 10;
+let i;
+
+let score, scoreValue;
+let slider, sliderValue;
+
+
 let img_file;
 let img;
 
-let timer;
+
 
 let guess;
 
@@ -15,22 +19,19 @@ let array_of_emotions;
 
 
 function setup(){
-  let largura = windowWidth;
-  let altura = windowHeight;
+  largura = windowWidth;
+  altura = windowHeight;
 
   let larguraBotao = largura * 0.0625
   let alturaBotao = altura * 0.05
 
-  // let size  = fullScreen();
   createCanvas(windowWidth, windowHeight);
 
   reset();
 
-  textAlign(CENTER);
-  textSize(40);
-  fill(255, 255, 255);
-  stroke(255, 255, 255);
-  text("Score: 0", largura * 0.5, altura * 0.1, largura * 0.25, altura * 0.1);
+  slider = createSlider(200, 1000, 500);
+  slider.position(largura * 0.85, altura * 0.3)
+
 
   Anger = createButton("Anger").size(larguraBotao, alturaBotao);
   Anger.position(largura * 0.02, altura * .90);
@@ -55,44 +56,63 @@ function setup(){
 }
 
 function draw() {
-  background(0,0,0);
+  writeText();
   update();
 }
+
 function reset(){
     array_of_emotions = [];
-    createArrayOfEmotions();
-    score_value = 0;
-    nextQuestion();
+    array_of_emotions = createArrayOfEmotions();
+    scoreValue = 0;
+    // nextQuestion();
 }
 
 function createArrayOfEmotions(){
-  for (let i = 0; i < repetitions; ++i){
-    temp = new Emotion();
-    array_of_emotions.push(temp);
+  let bufferArray = [];
+  for ( i = 0; i < repetitions; ++i){
+    bufferArray[i] = new Emotion;
   }
+  return bufferArray;
 }
 
 
 function afterButtomPressed(guess){
-  score_update(checkResult(guess))
+  scoreUpdate(checkResult(guess))
   nextQuestion();
 }
 
 function nextQuestion(){
-  img_file = array_of_emotions.top().imageFile();
+  img_file = array_of_emotions[i].imageFile();
 }
 
 
 function checkResult(guess){
-  return (array_of_emotions.pop().show() == guess);
+  let temp = array_of_emotions[i].show()
+  --i;
+  return (temp == guess);
+
 }
 
 // TODO: Preciso declarar verify ?
-function score_update(verify){
-  if (verify) ++score_value;
-  else --score_value;
+function scoreUpdate(verify){
+  if (verify) ++scoreValue;
+  else --scoreValue;
 }
 
+function writeText(){
+  background(0,0,0);
+  textAlign(CENTER);
+  textSize(20);
+  fill(255, 255, 255);
+
+  // Variables
+  sliderValue = slider.value()
+
+   //  Image speed
+   text("Time: " + slider.value() + " ms", largura * 0.80, altura * 0.2, largura * 0.25, altura * 0.1);
+    // Score
+    score = text("Score: " + str(scoreValue*100), largura * 0.8, altura * 0.1, largura * 0.25, altura * 0.1);
+}
 
 function update(){
   img = loadImage(img_file);

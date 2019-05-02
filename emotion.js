@@ -21,10 +21,6 @@ class Emotion{
   }
 
   ImageFile(){
-    return this.loadEmotionImage;
-  }
-
-  loadEmotionImage(){
     return "/asserts/" + this.emotion + "/" + str(floor(random(this.Database[this.emotion]))) + ".png";
   }
 
