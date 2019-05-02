@@ -105,11 +105,9 @@ function writeText(){
   textSize(20);
   fill(255, 255, 255);
 
-  // Variables
-  sliderValue = slider.value()
 
    //  Image speed
-   text("Time: " + slider.value() + " ms", largura * 0.80, altura * 0.2, largura * 0.25, altura * 0.1);
+   sliderValue = text("Time: " + slider.value() + " ms", largura * 0.80, altura * 0.2, largura * 0.25, altura * 0.1);
     // Score
     score = text("Score: " + str(scoreValue*100), largura * 0.8, altura * 0.1, largura * 0.25, altura * 0.1);
 }
