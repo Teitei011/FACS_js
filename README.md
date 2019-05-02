@@ -1,6 +1,12 @@
 # FACS_js
 
+I´m making this program to get ther better 
+
 ***TODO LIST***
+
+  **TO Learn**
+  - [ ] How to put diferents canvas
+
   **Imagem**
   - [x] Organizar cada emoção numa pasta separada
   - [ ] Carregar/Descarregar dinamicamente as imagens conforme pedido
@@ -11,7 +17,7 @@
   - [x] Verificação da emocao para o  guess
   - [ ] Fazer o image_update
   - [x] Score
-  - [ ] Imagem do score
+  - [x] Imagem do score
   - [x]  Implementacao do reset
 
   **Interface Grafica**
@@ -23,6 +29,6 @@
 
   **Futuro**
   - [ ] Pagina que explica com imagens cada emocao
-  - [ ] Setar diferentes velocidades para o timer
+  - [x] Setar diferentes velocidades para o timer
   - [ ]  Fazer um site que pode ser acessado por todos
   - [ ] Atualizar de forma dinamica a imagem para diferentes resolucoes
