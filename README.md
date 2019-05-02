@@ -19,6 +19,7 @@
      - [x] Colocar Botões no lugar certo
      - [ ] Fazer eles exercerem alguma funcao
      - [ ] Colocar score no lugar certo
+     - [ ] Atualizar de forma dinamica o texto
 
   **Futuro**
   - [ ] Pagina que explica com imagens cada emocao
