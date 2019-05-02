@@ -33,6 +33,10 @@ function setup(){
   Happyness = createButton("Happyness");
 }
 
+function draw() {
+  background(255,255,255);
+  update();
+}
 function reset(){
     array_of_emotions = [];
     createArrayOfEmotions();
@@ -47,10 +51,6 @@ function createArrayOfEmotions(){
   }
 }
 
-function draw() {
-  background(255,255,255);
-  update();
-}
 
 function afterButtomPressed(guess){
   score_update(checkResult(guess))
