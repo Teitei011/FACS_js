@@ -36,9 +36,4 @@ class Emotion{
   database(){
     return this._Database;
   }
-
-  // imageFile(){
-  //   return "/asserts/" + this.emotion + "/" + str(floor(random(this.Database[this.emotion]))) + ".png";
-  // }
-
 }

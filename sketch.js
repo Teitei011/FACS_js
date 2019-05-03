@@ -2,12 +2,12 @@
 let altura, largura;
 
 let i;
-let repetitions = 21;
+let repetitions;
 
 let score;
 let slider;
 
-let playButtom, stopButtom, resetButtom;
+let playButtom, stopButtom, resetButtom, iterations;
 
 let imgFile;
 let img;
@@ -27,11 +27,6 @@ function setup(){
   let alturaBotao = altura * 0.05
 
   createCanvas(windowWidth, windowHeight);
-
-  score = 0;
-  slider = createSlider(200, 1000, 500, 100);
-  slider.position(largura * 0.85, altura * 0.3)
-
 
   Anger = createButton("Anger").size(larguraBotao, alturaBotao);
   Anger.position(largura * 0.02, altura * .90);
@@ -64,21 +59,30 @@ function setup(){
 
   // Play
   playButtom = createButton("Play").size(larguraBotao, alturaBotao*1.2);
-  playButtom.position(largura * .9, altura * .40);
+  playButtom.position(largura * .9, altura * .50);
   playButtom.mousePressed(play);
 
  // Stop
   stopButtom = createButton("Stop").size(larguraBotao, alturaBotao * 1.2);
-  stopButtom.position(largura * .9, altura * .50);
+  stopButtom.position(largura * .9, altura * .60);
   stopButtom.mousePressed(stop);
 
   // Reset Buttom
   resetButtom = createButton("Reset").size(larguraBotao, alturaBotao * 1.2);
-  resetButtom.position(largura * .9, altura * .60);
+  resetButtom.position(largura * .9, altura * .70);
   resetButtom.mousePressed(reset);
 
+  // Score Slider
+  score = 0;
+  slider = createSlider(200, 1000, 500, 100);
+  slider.position(largura * 0.85, altura * 0.3)
 
+  // Repetitions Slider
+  iterations = createSlider(10, 100, 30, 10);
+  iterations.position(largura * 0.85, altura *.40)
 }
+
+
 
 function play(){
   reset();
@@ -107,7 +111,7 @@ function reset(){
 
 function createArrayOfEmotions(){
   let temp;
-  for ( i = 0; i < repetitions; ++i){
+  for ( i = 0; i < iterations.value(); ++i){
     temp = new Emotion;
     arrayOfEmotions[i] =  temp;
   }
@@ -124,7 +128,7 @@ function nextQuestion(){
   // Caso ainda há informacao no array
   if(i != -1){
     imgFile  = arrayOfEmotions[i].imageFile();
-    // console.log("ImageFile: " + imgFile);
+    imgUpdate();
   }else{
     console.log("End of the game")
     reset();
@@ -142,8 +146,6 @@ function checkResult(guess){
 function scoreUpdate(verify){
   if (verify) score++;
   else score--;
-
-
   console.log("Score Value: " + str(score))
 }
 
@@ -154,18 +156,24 @@ function writeText(){
   fill(255, 255, 255);
 
 // Score text
-  text("Score: " + score, largura * 0.80, altura * 0.10, largura * 0.25, altura * 0.1);
+  text("Score: " + score *100, largura * 0.80, altura * 0.10, largura * 0.25, altura * 0.1);
 
-  // Slider text
+  // Slider Timer
   text("Time: " + str(slider.value()) + " ms", largura * 0.925, altura * 0.25);
+
+  // Number of itinerations
+  text("Iterations: " + str(iterations.value()), largura * 0.925, altura * 0.37 )
 }
 
 
 function imgUpdate(){
   img = loadImage(imgFile);
   image(img, 0, 0);
-  setInterval();
-  img.remove(); // Remove the image
+  setInterval(unloadImage, slider.value()); // Call unload image after a time that exist in slider
+}
+
+function unloadImage(){
+  img.remove();
 }
 
 // Function to each emotion buttom
