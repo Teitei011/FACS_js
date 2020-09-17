@@ -14,7 +14,7 @@ class Emotion{
 
    // Por enquanto toda vez que
     imageFile(){
-      let temp  = "/asserts/" + this._emotion + "/";
+      let temp  = "/assets/" + this._emotion + "/";
       let number;
 
       if (this._emotion == "Anger"){ number = this._Database[0]; }
